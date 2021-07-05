@@ -1,7 +1,7 @@
 pipeline{
     agent{
         docker{
-            image adoptopenjdk:latest
+            image 'adoptopenjdk:latest'
         }
     }
     triggers{
