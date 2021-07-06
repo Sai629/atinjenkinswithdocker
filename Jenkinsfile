@@ -57,9 +57,9 @@ pipeline {
                             image 'adoptopenjdk:hotspot'
                         }
                     }
-                }
-                steps {
-                    sh 'firstbuild'
+                    steps {
+                        sh 'firstbuild'
+                    }
                 }
                 stage ("build java 11") {
                     agent {
@@ -67,9 +67,10 @@ pipeline {
                             image 'adoptopenjdk:8u292-b10-jre-hotspot'
                         }
                     }
-                    steps{
+                    steps {
                         sh 'echo hello'
                     }
+                   
                 }
             }
         }   
