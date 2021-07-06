@@ -58,7 +58,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh 'firstbuild'
+                        sh 'echo hello world'
                     }
                 }
                 stage ("build java 11") {
