@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'adoptopenjdk:latest'
+            image 'adoptopenjdk/openjdk8-openj9:jre8u292-b10_openj9-0.26.0-ubuntu'
         }
     }
     triggers {
