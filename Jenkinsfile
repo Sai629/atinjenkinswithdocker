@@ -79,11 +79,3 @@ pipeline{
         }
     }
 }
-    post {
-        always {
-            echo "hello workd"
-        }
-        unsucessful {
-            sh 'failed'
-        }
-    } 
