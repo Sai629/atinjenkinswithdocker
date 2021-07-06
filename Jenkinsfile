@@ -54,7 +54,7 @@ pipeline {
                 stage ("build on ubuntu") {
                     agent {
                         docker {
-                            image 'adoptopenjdk:hotspot'
+                            image 'adoptopenjdk:8u292-b10-jdk-openj9-0.26.0'
                         }
                     }
                     steps {
