@@ -48,35 +48,31 @@ pipeline {
                 sh 'echo $CLASS_NAME'
             }
         }
-
-        stage("parallel"){
-                failfast true
-                parallel{
-                    stage ("build on ubuntu"){
-                        agent{
+        stage("parallel") {
+                failFast true
+                parallel {
+                    stage ("build on ubuntu") {
+                        agent {
                             docker {
                                 image 'adoptopenjdk:hotspot'
-                             }
+                            }
                         }
                     }
                     steps {
-                         sh 'mvn install -DskipTests'
+                        sh 'mvn install -DskipTests'
                     }
-                    stage ("build java 11"){
-                        agent{
+                    stage ("build java 11") {
+                        agent {
                             docker {
                                 image 'adoptopenjdk:8u292-b10-jre-hotspot'
                                 //maven image
-                             }
+                            }
                         }
                         steps{
                             sh 'echo hello'
                         }
                     }
-                }
-            steps {
-                sh 'mvn package -Dskipsteps'
             }
-        }
+        }   
     }
 }
