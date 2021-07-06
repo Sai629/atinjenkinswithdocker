@@ -38,7 +38,6 @@ pipeline{
         agent{
             docker {
                 image 'adoptopenjdk/openjdk8-openj9:jre8u292-b10_openj9-0.26.0-ubuntu'
-            //maven image
             }
         }
         stage("test stage") {
@@ -55,8 +54,7 @@ pipeline{
                     stage ("build on ubuntu"){
                         agent{
                             docker {
-                                image 'adoptopenjdk/openjdk8-openj9:jre8u292-b10_openj9-0.26.0-ubuntu'
-                                //maven image
+                                image 'adoptopenjdk:hotspot'
                              }
                         }
                     }
@@ -66,12 +64,12 @@ pipeline{
                     stage ("build java 11"){
                         agent{
                             docker {
-                                image 'adoptopenjdk/openjdk8-openj9:jre8u292-b10_openj9-0.26.0-ubuntu'
+                                image 'adoptopenjdk:8u292-b10-jre-hotspot'
                                 //maven image
                              }
                         }
                         steps{
-                            sh 'mvn install'
+                            sh 'echo hello'
                         }
                     }
                 }
